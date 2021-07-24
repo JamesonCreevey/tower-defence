@@ -242,8 +242,18 @@ function handleEnemies() {
     }
     if (enemies[i].health <= 0) {
       let gainedResources = enemies[i].maxHealth / 5;
-      floatingMessages.push(new floatingMessage('+' + gainedResources, enemies[i].x, enemies[i].y, 30, 'black');
-      floatingMessages.push(new floatingMessage('+' + gainedResources, 250, 50, 30, 'gold'));
+      floatingMessages.push(
+        new floatingMessage(
+          "+" + gainedResources,
+          enemies[i].x,
+          enemies[i].y,
+          30,
+          "black"
+        )
+      );
+      floatingMessages.push(
+        new floatingMessage("+" + gainedResources, 250, 50, 30, "gold")
+      );
       numberOfResources += gainedResources;
       score += gainedResources;
       const findThisIndex = enemyPosition.indexOf(enemies[i].y);
@@ -289,8 +299,18 @@ function handleResources() {
     resources[i].draw();
     if (resources[i] && mouse.x && mouse.y && collision(resources[i], mouse)) {
       numberOfResources += resources[i].amount;
-      floatingMessages.push(new floatingMessage('+' + resources[i].amount, resources[i].x, resources[i].y, 30, 'black'));
-      floatingMessages.push(new floatingMessage('+' + resources[i].amount, 250, 50, 30, 'gold'));
+      floatingMessages.push(
+        new floatingMessage(
+          "+" + resources[i].amount,
+          resources[i].x,
+          resources[i].y,
+          30,
+          "black"
+        )
+      );
+      floatingMessages.push(
+        new floatingMessage("+" + resources[i].amount, 250, 50, 30, "gold")
+      );
       resources.splice(i, 1);
       i--;
     }
@@ -330,7 +350,9 @@ canvas.addEventListener("click", function () {
     defenders.push(new Defender(gridPositionX, gridPositionY));
     numberOfResources -= defenderCost;
   } else {
-    floatingMessages.push(new floatingMessage('need more resources', mouse.x, mouse.y, 15, 'blue'));
+    floatingMessages.push(
+      new floatingMessage("need more resources", mouse.x, mouse.y, 15, "blue")
+    );
   }
 });
 
